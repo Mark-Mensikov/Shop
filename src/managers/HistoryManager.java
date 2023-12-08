@@ -9,6 +9,9 @@ import com.sun.security.ntlm.Client;
 import entity.Product;
 import entity.History;
 import entity.Buyer;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -187,4 +190,15 @@ public class HistoryManager {
             n++; 
     }
 }
+
+    public void BlackFriday(List<History> histories) {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime blackFriday = LocalDateTime.of(2023, 12, 15, 0, 0, 0);
+        long days = now.until(blackFriday, ChronoUnit.DAYS);
+        long hours = now.until(blackFriday, ChronoUnit.HOURS) % 24;
+        long minutes = now.until(blackFriday, ChronoUnit.MINUTES) % 60;
+        long seconds = now.until(blackFriday, ChronoUnit.SECONDS) % 60;
+        System.out.printf("До черной пятницы 15.12.23 осталось %d дней, %d часов, %d минут, %d секунд.", days, hours, minutes, seconds);
+
+    }
 }

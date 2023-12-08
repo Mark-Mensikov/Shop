@@ -58,9 +58,17 @@ public class App {
             System.out.println("7. Display the total cost of all goods sold.");
             System.out.println("8. Add money to the buyer");
             System.out.println("9. Customer rating by number of purchases");
-            System.out.println("10. Product sales rating");
+            System.out.println("11. Editing the product");
+            System.out.println("12. Editing a user");
+            System.out.println("13. Black Friday");
+            
             System.out.print("Enter number task: ");
-            int task = InputFromKeyboard.inputNumberFromRange(0,10);
+            int task = InputFromKeyboard.inputNumberFromRange(0,13);
+            System.out.printf("Selected task %d, continue? (y/n): ",task);
+            String continueRun = InputFromKeyboard.inputSymbolYesOrNo();
+            if(continueRun.equals("n")){
+                continue;
+            }
             switch (task) {
                 case 0:
                     repeat = false;
@@ -100,6 +108,13 @@ public class App {
                     break;
                 case 10:
                     historyManager.ProductSalesRating(this.histories);
+                    break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                case 13:
+                    historyManager.BlackFriday(this.histories);
                     break;
                 default:
                     System.out.println("Select number from list tasks!");

@@ -49,6 +49,17 @@ public class InputFromKeyboard {
         }while(repeat);
         return number;
     }
+
+    public static String inputSymbolYesOrNo() {
+        Scanner scanner = new Scanner(System.in);
+        do{
+            String symbol = scanner.nextLine();
+            if(symbol.equals("n") || symbol.equals("y")){
+                return symbol;
+            }
+            System.out.print("For continue press \"y\", exit press \"n\": ");
+        }while(true);
+    }
     
     
 }
